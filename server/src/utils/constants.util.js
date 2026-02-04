@@ -1,0 +1,16 @@
+const ROLES = {
+  ADMIN: "ADMIN",
+  EDITOR: "EDITOR",
+  VIEWER: "VIEWER"
+};
+
+const ACCESS_LEVELS = {
+  PRIVATE: "PRIVATE",
+  PUBLIC_VIEW: "PUBLIC_VIEW",
+  PUBLIC_EDIT: "PUBLIC_EDIT"
+};
+
+module.exports = {
+  ROLES,
+  ACCESS_LEVELS
+};

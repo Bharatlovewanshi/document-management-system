@@ -1,0 +1,75 @@
+<div class="p-6">
+  <h2 class="text-2xl font-bold mb-6">User Management</h2>
+
+  <!-- Users Table -->
+  <div class="overflow-x-auto bg-white shadow rounded-lg">
+    <table class="min-w-full border-collapse">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-3 text-left text-sm font-semibold">Name</th>
+          <th class="px-4 py-3 text-left text-sm font-semibold">Email</th>
+          <th class="px-4 py-3 text-left text-sm font-semibold">Role</th>
+          <th class="px-4 py-3 text-left text-sm font-semibold">Status</th>
+          <th class="px-4 py-3 text-left text-sm font-semibold">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr
+          *ngFor="let user of users"
+          class="border-t hover:bg-gray-50"
+        >
+          <!-- Name -->
+          <td class="px-4 py-3">
+            {{ user.name }}
+          </td>
+
+          <!-- Email -->
+          <td class="px-4 py-3 text-gray-600">
+            {{ user.email }}
+          </td>
+
+          <!-- Role -->
+          <td class="px-4 py-3">
+            <select
+              class="border rounded px-2 py-1"
+              [ngModel]="user.role"
+              (ngModelChange)="changeRole(user._id, $event)"
+            >
+              <option value="ADMIN">ADMIN</option>
+              <option value="USER">USER</option>
+            </select>
+          </td>
+
+          <!-- Status -->
+          <td class="px-4 py-3">
+            <span
+              class="px-2 py-1 text-xs font-semibold rounded"
+              [ngClass]="user.isActive ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'"
+            >
+              {{ user.isActive ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+
+          <!-- Actions -->
+          <td class="px-4 py-3">
+            <button
+              class="px-3 py-1 rounded text-white text-sm"
+              [ngClass]="user.isActive ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'"
+              (click)="toggleStatus(user._id, user.isActive)"
+            >
+              {{ user.isActive ? 'Deactivate' : 'Activate' }}
+            </button>
+          </td>
+        </tr>
+
+        <!-- Empty state -->
+        <tr *ngIf="users.length === 0">
+          <td colspan="5" class="text-center py-6 text-gray-500">
+            No users found.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

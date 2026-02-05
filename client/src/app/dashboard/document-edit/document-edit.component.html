@@ -1,0 +1,41 @@
+<div class="p-6 max-w-xl mx-auto">
+
+  <h2 class="text-2xl font-bold mb-6">Upload New Version</h2>
+
+  <p *ngIf="errorMessage" class="text-red-600 mb-3">
+    {{ errorMessage }}
+  </p>
+
+  <textarea
+    [(ngModel)]="changeNote"
+    placeholder="Describe what changed (optional)"
+    class="border rounded px-3 py-2 w-full mb-4"
+  ></textarea>
+
+  <input
+    type="file"
+    (change)="onFileChange($event)"
+    class="mb-4"
+  />
+
+  <app-loader *ngIf="isUploading" text="Uploading new version..."></app-loader>
+
+  <div class="flex gap-3">
+    <button
+      (click)="submit()"
+      [disabled]="isUploading"
+      class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+    >
+      Upload Version
+    </button>
+
+    <!-- ✅ FIXED -->
+    <button
+      (click)="goBack()"
+      class="bg-gray-300 px-4 py-2 rounded"
+    >
+      Cancel
+    </button>
+  </div>
+
+</div>

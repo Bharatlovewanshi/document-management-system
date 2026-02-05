@@ -1,0 +1,66 @@
+<div class="p-6">
+
+  <!-- Loader -->
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <ng-container *ngIf="!isLoading && document">
+
+    <h2 class="text-2xl font-bold mb-2">
+      {{ document.title }}
+    </h2>
+
+    <p class="text-gray-600 mb-4">
+      {{ document.description || 'No description provided.' }}
+    </p>
+
+    <!-- Meta -->
+    <div class="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+      <span>Version: {{ document.currentVersion }}</span>
+      <span>Type: {{ document.fileType }}</span>
+      <span>
+        Owner: {{ document.uploadedBy?.name || 'Unknown' }}
+      </span>
+    </div>
+
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <span
+        *ngFor="let tag of document.tags"
+        class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded"
+      >
+        {{ tag }}
+      </span>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex flex-wrap gap-3">
+
+      <a
+        [href]="'https://docs.google.com/gview?url=' + document.fileUrl + '&embedded=true'"
+        target="_blank"
+        class="px-4 py-2 bg-gray-200 rounded"
+      >
+        View File
+      </a>
+
+
+      <button
+        *ngIf="canEdit"
+        [routerLink]="['/dashboard/edit', document._id]"
+        class="px-4 py-2 bg-blue-600 text-white rounded"
+      >
+        Edit Document
+      </button>
+
+      <button
+        [routerLink]="['/dashboard/versions', document._id]"
+        class="px-4 py-2 bg-gray-600 text-white rounded"
+      >
+        Version History
+      </button>
+
+    </div>
+
+
+  </ng-container>
+</div>

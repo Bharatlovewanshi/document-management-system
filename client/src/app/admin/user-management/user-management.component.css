@@ -1,0 +1,16 @@
+/* User Management Component Styles */
+
+/* Smooth hover transition for table rows */
+table tr {
+  transition: background-color 0.15s ease-in-out;
+}
+
+/* Disable select outline glow in some browsers */
+select:focus {
+  outline: none;
+}
+
+/* Button focus cleanup */
+button:focus {
+  outline: none;
+}

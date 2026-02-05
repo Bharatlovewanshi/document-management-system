@@ -1,0 +1,5 @@
+/* Navbar specific tweaks (Tailwind handles most styling) */
+
+button {
+  transition: background-color 0.2s ease-in-out;
+}

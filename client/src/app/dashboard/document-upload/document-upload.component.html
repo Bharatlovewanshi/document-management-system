@@ -1,0 +1,63 @@
+<div class="p-6 max-w-xl mx-auto">
+
+  <h2>Upload Document</h2>
+
+  <!-- Error -->
+  <p *ngIf="errorMessage" class="text-red-600 mb-3">
+    {{ errorMessage }}
+  </p>
+
+  <!-- Title -->
+   
+  <input
+    type="text"
+    placeholder="Document Title"
+    [(ngModel)]="title"
+    class="border rounded px-3 py-2 w-full mb-3"
+  />
+
+  <!-- Description -->
+  <textarea
+    placeholder="Description"
+    [(ngModel)]="description"
+    class="border rounded px-3 py-2 w-full mb-3"
+  ></textarea>
+
+  <!-- Tags -->
+  <input
+    type="text"
+    placeholder="Tags (comma separated)"
+    [(ngModel)]="tags"
+    class="border rounded px-3 py-2 w-full mb-3"
+  />
+
+  <!-- Access Level -->
+  <select
+    [(ngModel)]="accessLevel"
+    class="border rounded px-3 py-2 w-full mb-3"
+  >
+    <option value="PRIVATE">Private</option>
+    <option value="PUBLIC_VIEW">Public View</option>
+  </select>
+
+  <!-- File -->
+  <input
+    type="file"
+    (change)="onFileChange($event)"
+    class="mb-4"
+  />
+
+  <!-- Loader -->
+  <app-loader *ngIf="isUploading" text="Uploading..."></app-loader>
+
+  <!-- Submit -->
+  <button
+    type="button"
+    (click)="upload()"
+    [disabled]="isUploading"
+    class="bg-blue-600 text-white px-4 py-2 rounded"
+  >
+    Upload
+  </button>
+
+</div>

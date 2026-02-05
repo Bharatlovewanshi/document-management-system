@@ -1,0 +1,29 @@
+<nav class="bg-gray-800 text-white px-6 py-3 flex items-center justify-between">
+
+  <!-- Left: App Name -->
+  <div class="flex items-center space-x-2">
+    <span class="text-lg font-bold">DMS</span>
+    <span class="text-sm text-gray-300 hidden sm:inline">
+      Document Management System
+    </span>
+  </div>
+
+  <!-- Right: User Info -->
+  <div class="flex items-center space-x-4">
+
+    <!-- User name & role -->
+    <div class="text-right hidden sm:block">
+      <p class="text-sm font-medium">{{ user?.name }}</p>
+      <p class="text-xs text-gray-400">{{ user?.role }}</p>
+    </div>
+
+    <!-- Logout -->
+    <button
+      (click)="logout()"
+      class="bg-red-500 hover:bg-red-600 text-sm px-3 py-1 rounded"
+    >
+      Logout
+    </button>
+
+  </div>
+</nav>

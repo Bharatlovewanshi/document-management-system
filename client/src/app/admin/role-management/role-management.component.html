@@ -1,0 +1,50 @@
+<div class="p-6">
+  <h2 class="text-2xl font-bold mb-4">Role Management</h2>
+
+  <p class="text-gray-600 mb-6">
+    Manage system roles and understand permission levels across the application.
+  </p>
+
+  <!-- Roles Overview -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- ADMIN -->
+    <div class="border rounded-lg p-4 shadow-sm bg-white">
+      <h3 class="text-lg font-semibold text-red-600 mb-2">ADMIN</h3>
+      <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+        <li>Manage users</li>
+        <li>Change roles</li>
+        <li>Activate / deactivate users</li>
+        <li>Access all documents</li>
+      </ul>
+    </div>
+
+    <!-- USER -->
+    <div class="border rounded-lg p-4 shadow-sm bg-white">
+      <h3 class="text-lg font-semibold text-blue-600 mb-2">USER</h3>
+      <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+        <li>Upload documents</li>
+        <li>Edit permitted documents</li>
+        <li>View shared documents</li>
+      </ul>
+    </div>
+
+    <!-- VIEWER (optional future role) -->
+    <div class="border rounded-lg p-4 shadow-sm bg-white">
+      <h3 class="text-lg font-semibold text-green-600 mb-2">VIEWER</h3>
+      <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+        <li>View documents only</li>
+        <li>No edit permissions</li>
+        <li>Read-only access</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Info note -->
+  <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded">
+    <p class="text-sm text-yellow-800">
+      Role assignment is managed from the <strong>User Management</strong> section.
+    </p>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 # Node
 node_modules
 
-# Environment files
+# Environment variables (Backend)
 .env
 .env.local
+
+# Angular environment files (Frontend)
+client/src/environments/environment.ts
+client/src/environments/environment.prod.ts
